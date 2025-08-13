@@ -88,6 +88,7 @@ namespace blackhole
 
                 // Draw rays
                 foreach (var ray in rays)
+                    // if (ray.IsActive)
                     ray.DrawTrail(g);
                 foreach (var ray in rays)
                     ray.Draw(g);

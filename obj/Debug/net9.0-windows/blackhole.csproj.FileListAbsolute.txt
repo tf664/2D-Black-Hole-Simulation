@@ -27,3 +27,4 @@ c:\Users\tilfe\Desktop\BlackHole\obj\Debug\net9.0-windows\refint\blackhole.dll
 c:\Users\tilfe\Desktop\BlackHole\obj\Debug\net9.0-windows\blackhole.pdb
 C:\Users\tilfe\Desktop\BlackHole\obj\Debug\net9.0-windows\blackhole.genruntimeconfig.cache
 C:\Users\tilfe\Desktop\BlackHole\obj\Debug\net9.0-windows\ref\blackhole.dll
+c:\Users\tilfe\Desktop\BlackHole\obj\Debug\net9.0-windows\blackhole.sourcelink.json

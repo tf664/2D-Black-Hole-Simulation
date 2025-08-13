@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("blackhole")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+35ac8d8f6bcc5d2d41b4cf0bf7ef0103a4692f48")]
 [assembly: System.Reflection.AssemblyProductAttribute("blackhole")]
 [assembly: System.Reflection.AssemblyTitleAttribute("blackhole")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
