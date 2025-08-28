@@ -92,8 +92,8 @@ Or open `blackhole.sln` in Visual Studio and run the project.
 ### Limitation
 
 - Simplified visualization of complext 4D geometry
-> 2D curved paths that photons follow
-> Reality: These paths are the projection of 4D geodesics onto 3D space, themselves curved by the geometry of 4D spacetime
+> 2D curved paths that photons follow. 
+> In Reality: These paths are the projection of 4D geodesics onto 3D space, themselves curved by the geometry of 4D spacetime
 
 ## References
 
