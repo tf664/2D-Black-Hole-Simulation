@@ -89,15 +89,11 @@ Or open `blackhole.sln` in Visual Studio and run the project.
 - Realistic mass scaling
 - Gravitational time dilation effects
 
-### Limitations
+### Limitation
 
-- 2D projection of 3D spacetime
-- Classical ray optics (no quantum effects)
-- No accretion disk or matter interactions
-- Simplified visualization of complex 4D geometry
 - Simplified visualization of complext 4D geometry
-    -> 2D curved paths that photons follow
-    -> Reality: These paths are the projection of 4D geodesics onto 3D space, themselves curved by the geometry of 4D spacetime
+- > 2D curved paths that photons follow
+- > Reality: These paths are the projection of 4D geodesics onto 3D space, themselves curved by the geometry of 4D spacetime
 
 ## References
 
