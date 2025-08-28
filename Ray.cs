@@ -66,7 +66,7 @@ namespace blackhole
             for (int i = 0; i < 4; i++)
                 y0[i] += (dt / 6.0) * (k1[i] + 2 * k2[i] + 2 * k3[i] + k4[i]);
 
-            // Prüfe auf NaN/Infinity
+            // Checks for NaN/Infinity
             for (int i = 0; i < 4; i++)
             {
                 if (double.IsNaN(y0[i]) || double.IsInfinity(y0[i]))
@@ -81,7 +81,7 @@ namespace blackhole
             dr = y0[2];
             dphi = y0[3];
 
-            if (r <= Form1.r_s)  // Ereignishorizont erreicht
+            if (r <= Form1.r_s)  // Event horizon reached
             {
                 IsActive = false;
                 return;
@@ -91,7 +91,7 @@ namespace blackhole
             x = Form1.holeX_m + r * Math.Cos(phi);
             y = Form1.holeY_m + r * Math.Sin(phi);
 
-            // Store trail (nur wenn gültig)
+            // Store trail (only when valid)
             float px = (float)(x / Form1.metersPerPixel);
             float py = (float)(y / Form1.metersPerPixel);
             if (!float.IsFinite(px) || !float.IsFinite(py))
@@ -110,6 +110,8 @@ namespace blackhole
                 IsActive = false;
         }
 
+
+
         /// <summary>
         /// Geodesic RHS
         /// y = [r, phi, dr, dphi]
@@ -125,7 +127,7 @@ namespace blackhole
 
             if (r <= rs + eps)
             {
-                // Direkt am oder unterhalb des Horizonts: Bewegung stoppen
+                // Directly at or below the horizon: stop movement
                 return new double[] { 0, 0, 0, 0 };
             }
 
@@ -150,6 +152,7 @@ namespace blackhole
             return new double[] { d_r, d_phi, d2r, d2phi };
         }
 
+
         private double[] Add(double[] a, double[] b, double scale)
         {
             return new double[]
@@ -161,6 +164,7 @@ namespace blackhole
             };
         }
 
+
         public void Draw(Graphics g)
         {
             float px = (float)(x / Form1.metersPerPixel);
@@ -171,6 +175,7 @@ namespace blackhole
 
             g.FillEllipse(Brushes.White, px - 2, py - 2, 4, 4);
         }
+
 
         public void DrawTrail(Graphics g)
         {
