@@ -7,6 +7,11 @@ partial class Form1
     private System.Windows.Forms.Button btnSingleRay;
     private System.Windows.Forms.Button btnPointSource;
 
+    private System.Windows.Forms.Button btnSettings;
+    private System.Windows.Forms.Panel settingsPanel;
+    private System.Windows.Forms.TrackBar massSlider;
+    private System.Windows.Forms.Label massLabel;
+
     /// <summary>
     ///  Required designer variable.
     /// </summary>
@@ -37,7 +42,14 @@ partial class Form1
         this.btnNormal = new System.Windows.Forms.Button();
         this.btnSingleRay = new System.Windows.Forms.Button();
         this.btnPointSource = new System.Windows.Forms.Button();
+
+        this.btnSettings = new System.Windows.Forms.Button();
+        this.settingsPanel = new System.Windows.Forms.Panel();
+        this.massSlider = new System.Windows.Forms.TrackBar();
+        this.massLabel = new System.Windows.Forms.Label();
+
         this.SuspendLayout();
+
         // 
         // btnNormal
         // 
@@ -47,7 +59,8 @@ partial class Form1
         this.btnNormal.TabIndex = 0;
         this.btnNormal.Text = "Normal";
         this.btnNormal.UseVisualStyleBackColor = true;
-        this.btnNormal.Click += new System.EventHandler(this.btnNormal_Click);
+        this.btnNormal.Click += new System.EventHandler(this.BtnNormal_Click);
+
         // 
         // btnSingleRay
         // 
@@ -57,7 +70,8 @@ partial class Form1
         this.btnSingleRay.TabIndex = 1;
         this.btnSingleRay.Text = "Single Ray";
         this.btnSingleRay.UseVisualStyleBackColor = true;
-        this.btnSingleRay.Click += new System.EventHandler(this.btnSingleRay_Click);
+        this.btnSingleRay.Click += new System.EventHandler(this.BtnSingleRay_Click);
+
         // 
         // btnPointSource
         // 
@@ -67,13 +81,59 @@ partial class Form1
         this.btnPointSource.TabIndex = 2;
         this.btnPointSource.Text = "Point Source";
         this.btnPointSource.UseVisualStyleBackColor = true;
-        this.btnPointSource.Click += new System.EventHandler(this.btnPointSource_Click);
+        this.btnPointSource.Click += new System.EventHandler(this.BtnPointSource_Click);
+
+        // 
+        // btnSettings
+        // 
+        this.btnSettings.Location = new System.Drawing.Point(10, 10);
+        this.btnSettings.Name = "btnSettings";
+        this.btnSettings.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
+        this.btnSettings.TabIndex = 3;
+        this.btnSettings.Text = "Settings";
+        this.btnSettings.UseVisualStyleBackColor = true;
+        this.btnSettings.Click += new System.EventHandler(this.BtnSettings_Click);
+
+        // 
+        // settingsPanel
+        // 
+        this.settingsPanel.BackColor = System.Drawing.Color.FromArgb(40, 40, 40);
+        this.settingsPanel.Location = new System.Drawing.Point(10, 50);
+        this.settingsPanel.Name = "settingsPanel";
+        this.settingsPanel.Size = new System.Drawing.Size(200, 100);
+        this.settingsPanel.Visible = false;
+
+        // 
+        // massSlider
+        // 
+        this.massSlider.Minimum = 1;
+        this.massSlider.Maximum = 100;
+        this.massSlider.Value = 50;
+        this.massSlider.TickStyle = System.Windows.Forms.TickStyle.None;
+        this.massSlider.Location = new System.Drawing.Point(10, 30);
+        this.massSlider.Size = new System.Drawing.Size(180, 30);
+        this.massSlider.Scroll += new System.EventHandler(this.MassSlider_Scroll);
+
+        // 
+        // massLabel
+        // 
+        this.massLabel.Text = "Mass scale: 50";
+        this.massLabel.ForeColor = System.Drawing.Color.White;
+        this.massLabel.Location = new System.Drawing.Point(10, 10);
+        this.massLabel.Size = new System.Drawing.Size(180, 20);
+
+        // Add controls into panel
+        this.settingsPanel.Controls.Add(this.massSlider);
+        this.settingsPanel.Controls.Add(this.massLabel);
+
         // 
         // Form1
         // 
         this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
         this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         this.ClientSize = new System.Drawing.Size(800, 600);
+        this.Controls.Add(this.btnSettings);
+        this.Controls.Add(this.settingsPanel);
         this.Controls.Add(this.btnPointSource);
         this.Controls.Add(this.btnSingleRay);
         this.Controls.Add(this.btnNormal);

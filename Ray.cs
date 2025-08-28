@@ -26,24 +26,25 @@ namespace blackhole
             // Polar position relative to hole
             double rx = x - Form1.holeX_m;
             double ry = y - Form1.holeY_m;
-            r = Math.Sqrt(rx * rx + ry * ry);
-            if (r < 1e-12) r = 1e-12; // Schutz gegen Division durch 0
+            r = Math.Sqrt(rx * rx + ry * ry); // distance from black hole
+            if (r < 1e-12) r = 1e-12; // Prevention against division by zero
 
-            phi = Math.Atan2(ry, rx);
+            phi = Math.Atan2(ry, rx); // Angle from x-axis
 
             // Convert velocity (dx, dy) to polar components
             dr = (rx * dx + ry * dy) / r;
             dphi = (rx * dy - ry * dx) / (r * r);
 
-            // Compute conserved E using null condition
-            double f = 1.0 - Form1.r_s / r;
-            if (f <= 0) f = 1e-12; // Schutz: Horizon oder knapp darunter
+            // Movement equations
+            double f = 1.0 - Form1.r_s_dynamic / r; // Schwarzschild factor
+            if (f <= 0) f = 1e-12; // Prevention against division by zero
             double inside = (dr * dr) / (f * f) + (r * r * dphi * dphi) / f;
             if (inside < 0) inside = 0;
-            double dt_dλ = Math.Sqrt(inside);
+            double dt_dλ = Math.Sqrt(inside); // time progress
             E = f * dt_dλ;
+            // Equation behind it ds2=−(1−rrs​​)c2dt2+1−rs​/rdr2​+r2dϕ2
 
-            // Store initial trail point (nur wenn gültig)
+            // Store initial trail point (only when valid)
             float px = (float)(x / Form1.metersPerPixel);
             float py = (float)(y / Form1.metersPerPixel);
             if (float.IsFinite(px) && float.IsFinite(py))
@@ -56,7 +57,7 @@ namespace blackhole
         {
             if (!IsActive) return;
 
-            // RK4 step
+            // RK4 step: smooths out rays
             double[] y0 = { r, phi, dr, dphi };
             double[] k1 = Geodesic(y0);
             double[] k2 = Geodesic(Add(y0, k1, dt / 2));
@@ -81,7 +82,7 @@ namespace blackhole
             dr = y0[2];
             dphi = y0[3];
 
-            if (r <= Form1.r_s)  // Event horizon reached
+            if (r <= Form1.r_s_dynamic)  // Event horizon reached
             {
                 IsActive = false;
                 return;
@@ -104,7 +105,7 @@ namespace blackhole
             if (trail.Count > 500)
                 trail.RemoveAt(0);
 
-            // Out-of-bounds check
+            // Out-of-bounds 
             if (px < -10 || px > Form1.screenWidth + 10 ||
                 py < -10 || py > Form1.screenHeight + 10)
                 IsActive = false;
@@ -122,7 +123,7 @@ namespace blackhole
             double dr = y[2];
             double dphi = y[3];
 
-            double rs = Form1.r_s;
+            double rs = Form1.r_s_dynamic;
             double eps = 1e-9 * rs;
 
             if (r <= rs + eps)
