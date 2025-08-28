@@ -3,7 +3,7 @@
 Physics simulation of light rays (photons) around a black hole using Einstein's General Relativity equations. 
 Made with C# and Forms this demonstrates gravitational lensing, event horizons, and photon spheres.
 
-![Black Hole Simulation Demo](demo.gif)
+_visual preview here_
 
 ## Features
 
@@ -18,71 +18,7 @@ Made with C# and Forms this demonstrates gravitational lensing, event horizons, 
 
 ## Physics & Mathematics
 
-### Schwarzschild Metric
-
-The simulation uses the Schwarzschild solution to Einstein's field equations in spherical coordinates:
-
-```
-ds² = -(1 - rs/r)c²dt² + (1 - rs/r)⁻¹dr² + r²dφ²
-```
-
-Where:
-- `rs` = Schwarzschild radius (event horizon)
-- `r` = radial distance from black hole center
-- `φ` = angular coordinate
-- `c` = speed of light
-
-### Schwarzschild Radius
-
-The event horizon radius is calculated as:
-
-```
-rs = 2GM/c²
-```
-
-Where:
-- `G` = Gravitational constant (6.674 × 10⁻¹¹ m³/(kg⋅s²))
-- `M` = Mass of the black hole (default: 8.54 × 10³⁶ kg ≈ Sagittarius A*)
-- `c` = Speed of light (2.998 × 10⁸ m/s)
-
-### Geodesic Equations
-
-Light follows null geodesics in curved spacetime. The equations of motion are:
-
-```
-d²r/dλ² = -(rs/2r²)(1-rs/r)(dt/dλ)² + (rs/2r²f)(dr/dλ)² + (r-rs)(dφ/dλ)²
-
-d²φ/dλ² = -2(dr/dλ)(dφ/dλ)/r
-
-dt/dλ = E/f
-```
-
-Where:
-- `λ` = affine parameter along the geodesic
-- `f = 1 - rs/r` = Schwarzschild factor
-- `E` = conserved energy parameter
-
-### Numerical Integration
-
-The simulation uses the **Runge-Kutta 4th order (RK4)** method to integrate the geodesic equations:
-
-```csharp
-double[] k1 = Geodesic(y0);
-double[] k2 = Geodesic(Add(y0, k1, dt/2));
-double[] k3 = Geodesic(Add(y0, k2, dt/2));
-double[] k4 = Geodesic(Add(y0, k3, dt));
-
-for (int i = 0; i < 4; i++)
-    y0[i] += (dt/6.0) * (k1[i] + 2*k2[i] + 2*k3[i] + k4[i]);
-```
-
-### Scale Conversion
-
-The simulation converts between pixel coordinates and physical distances:
-
-- **1 pixel** = 4 × 10⁸ meters (400 million meters)
-- **Sagittarius A* Schwarzschild radius** ≈ 2.4 × 10¹⁰ meters
-- **Photon sphere radius** = 1.5 × rs ≈ 3.6 × 10¹⁰ meters
+ ___
 
 ---
 
@@ -182,6 +118,73 @@ The full Schwarzschild metric involves all 4 coordinates:
 ```
 ds² = -(1-rs/r)c²dt² + (1-rs/r)⁻¹dr² + r²(dθ² + sin²θdφ²)
 ```
+
+
+### Schwarzschild Metric
+
+The simulation uses the Schwarzschild solution to Einstein's field equations in spherical coordinates:
+
+```
+ds² = -(1 - rs/r)c²dt² + (1 - rs/r)⁻¹dr² + r²dφ²
+```
+
+Where:
+- `rs` = Schwarzschild radius (event horizon)
+- `r` = radial distance from black hole center
+- `φ` = angular coordinate
+- `c` = speed of light
+
+### Schwarzschild Radius
+
+The event horizon radius is calculated as:
+
+```
+rs = 2GM/c²
+```
+
+Where:
+- `G` = Gravitational constant (6.674 × 10⁻¹¹ m³/(kg⋅s²))
+- `M` = Mass of the black hole (default: 8.54 × 10³⁶ kg ≈ Sagittarius A*)
+- `c` = Speed of light (2.998 × 10⁸ m/s)
+
+### Geodesic Equations
+
+Light follows null geodesics in curved spacetime. The equations of motion are:
+
+```
+d²r/dλ² = -(rs/2r²)(1-rs/r)(dt/dλ)² + (rs/2r²f)(dr/dλ)² + (r-rs)(dφ/dλ)²
+
+d²φ/dλ² = -2(dr/dλ)(dφ/dλ)/r
+
+dt/dλ = E/f
+```
+
+Where:
+- `λ` = affine parameter along the geodesic
+- `f = 1 - rs/r` = Schwarzschild factor
+- `E` = conserved energy parameter
+
+### Numerical Integration
+
+The simulation uses the **Runge-Kutta 4th order (RK4)** method to integrate the geodesic equations:
+
+```csharp
+double[] k1 = Geodesic(y0);
+double[] k2 = Geodesic(Add(y0, k1, dt/2));
+double[] k3 = Geodesic(Add(y0, k2, dt/2));
+double[] k4 = Geodesic(Add(y0, k3, dt));
+
+for (int i = 0; i < 4; i++)
+    y0[i] += (dt/6.0) * (k1[i] + 2*k2[i] + 2*k3[i] + k4[i]);
+```
+
+### Scale Conversion
+
+The simulation converts between pixel coordinates and physical distances:
+
+- **1 pixel** = 4 × 10⁸ meters (400 million meters)
+- **Sagittarius A* Schwarzschild radius** ≈ 2.4 × 10¹⁰ meters
+- **Photon sphere radius** = 1.5 × rs ≈ 3.6 × 10¹⁰ meters
 
 
 
