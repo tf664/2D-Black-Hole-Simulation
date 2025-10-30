@@ -1,7 +1,7 @@
 # 2D Black Hole Simulation
 
 Physics simulation of light rays (photons) around a black hole using Einstein's General Relativity equations. 
-Made with C# and Forms this demonstrates gravitational lensing, event horizons, and photon spheres.
+Made with C# and Forms, which demonstrates gravitational lensing, event horizons, and photon spheres.
 
 <img src="readme-scr\blackhole-cs-simulator-demo.gif" width="550" alt="Demo GIF">
 
@@ -18,7 +18,7 @@ Made with C# and Forms this demonstrates gravitational lensing, event horizons, 
 
 ## Physics & Mathematics
 
- ___
+ XXXXXX
 
 ---
 
@@ -46,12 +46,6 @@ Made with C# and Forms this demonstrates gravitational lensing, event horizons, 
 
 ## Technical Implementation
 
-### Architecture
-
-- **Form1.cs**: Main application window and physics engine
-- **Ray.cs**: Individual photon trajectory calculation
-- **Form1.Designer.cs**: UI component definitions
-
 ### Key Constants
 
 ```csharp
@@ -60,6 +54,12 @@ public const double c = 299792458.0;     // Speed of light
 public const double mass = 8.54e36;      // Default mass (Sagittarius A*)
 public const double metersPerPixel = 4e8; // Scale factor
 ```
+
+### Architecture
+
+- **Form1.cs**: Main application window and physics engine
+- **Ray.cs**: Individual photon trajectory calculation
+- **Form1.Designer.cs**: UI component definitions
 
 ## Getting started
 
@@ -80,6 +80,8 @@ dotnet run
 
 Or open `blackhole.sln` in Visual Studio and run the project.
 
+---
+
 ## Scientific Accuracy
 
 - Correct Schwarzschild metric
@@ -95,6 +97,8 @@ Or open `blackhole.sln` in Visual Studio and run the project.
 > 2D curved paths that photons follow. 
 > In Reality: These paths are the projection of 4D geodesics onto 3D space, themselves curved by the geometry of 4D spacetime
 
+---
+
 ## References
 
 - Initial concept inspired by @kava010
@@ -107,8 +111,7 @@ Or open `blackhole.sln` in Visual Studio and run the project.
 
 ## TODO
 
-1. **Add visual preview**
-2. **Add mathematic explainations**
+1. **Add mathematic explainations**
 Mathematical Reality:
 The full Schwarzschild metric involves all 4 coordinates:
 ```
