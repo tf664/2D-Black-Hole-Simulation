@@ -2,7 +2,7 @@
 
 partial class Form1
 {
-    private const int buttonWidth = 100, buttonHeight = 30;
+    private const int buttonWidth = 100, buttonHeight = 40;
     private System.Windows.Forms.Button btnNormal;
     private System.Windows.Forms.Button btnSingleRay;
     private System.Windows.Forms.Button btnPointSource;
