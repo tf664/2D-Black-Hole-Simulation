@@ -16,7 +16,7 @@ namespace blackhole
     public partial class Form1 : Form
     {
         private SpawnMode currentMode = SpawnMode.Normal;
-        public const int screenWidth = 800, screenHeight = 600;
+        public const int screenWidth = 1000, screenHeight = 800;
         public const double rayAmount = 40;
         public const double metersPerPixel = 4e8;      // 1 pixel = 400 million meters
         public const double speed = 5e10; // m/s, reasonable for visualization

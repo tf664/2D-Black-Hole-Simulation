@@ -131,7 +131,7 @@ partial class Form1
         // 
         this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
         this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        this.ClientSize = new System.Drawing.Size(800, 600);
+        this.ClientSize = new System.Drawing.Size(Form1.screenWidth, Form1.screenHeight);
         this.Controls.Add(this.btnSettings);
         this.Controls.Add(this.settingsPanel);
         this.Controls.Add(this.btnPointSource);
