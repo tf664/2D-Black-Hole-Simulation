@@ -3,7 +3,7 @@
 Physics simulation of light rays (photons) around a black hole using Einstein's General Relativity equations. 
 Made with C# and Forms this demonstrates gravitational lensing, event horizons, and photon spheres.
 
-_visual preview here_
+<img src="readme-scr\blackhole-cs-simulator-demo.gif" width="550" alt="Demo GIF">
 
 ## Features
 
