@@ -4,6 +4,7 @@ Physics simulation of light rays (photons) around a black hole using Einstein's 
 Made with C# and Forms, which demonstrates gravitational lensing, event horizons, and photon spheres.
 
 <img src="readme-scr\blackhole-cs-simulator-demo.gif" width="550" alt="Demo GIF">
+| Recording shows some graphical defects, only visible in the recording. Colours appear solid in programm
 
 ## Features
 
